@@ -1,0 +1,2 @@
+wget -q -O pleyades.csv "$TAP_URL$URL_ADQL"
+echo "Descarga finalizada: pleyades.csv"

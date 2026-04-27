@@ -7,7 +7,7 @@ echo "Omega Centauri tiene coordenadas ICRS 13 26 47.28 -47 28 46.1"
 
 # Coordenadas en grados
 RA=201.697
-DE=-46.520527
+DE=-47.47947
 
 echo "Empezando la busqueda en Vizier  de todos los objetos alrededor de un diámetro angular de 0.5 grados"
 
@@ -42,7 +42,7 @@ echo "Creando nuevo catalogo Omega_Centauri..."
 
 # Vamos a cambiar el sed para que no genere problemas con el power.
 
-ADQL="SELECT Source, RA_ICRS, DE_ICRS, pmRA, pmDE, Gmag, BPmag, RPmag FROM \"I/355/gaiadr3\" WHERE (POWER(pmRA + 3.25, 2) + POWER(pmDE + 6.746, 2) <= POWER(0.6, 2)) AND 1=CONTAINS(POINT('ICRS', RA_ICRS, DE_ICRS), CIRCLE('ICRS', $RA, $DE, 0.5))"
+ADQL="SELECT Source, RA_ICRS, DE_ICRS, pmRA, pmDE, Gmag, BPmag, RPmag FROM \"I/355/gaiadr3\" WHERE (POWER(pmRA + 3.25, 2) + POWER(pmDE + 6.746, 2) <= POWER(2.0, 2)) AND 1=CONTAINS(POINT('ICRS', RA_ICRS, DE_ICRS), CIRCLE('ICRS', $RA, $DE, 0.5))"
 
 URL_ADQL=$(echo $ADQL | sed 's/+/%2B/g' | sed 's/ /+/g')
 
